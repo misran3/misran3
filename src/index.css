@@ -921,3 +921,401 @@ a:hover {
     display: none;
   }
 }
+
+/* ===== Projects Section ===== */
+.projects-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  background: #0f0f0f;
+  overflow: hidden;
+}
+
+/* Halftone pattern - denser for comic feel */
+.projects-halftone {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at center, var(--color-pink) 0.8px, transparent 0.8px),
+    radial-gradient(circle at center, var(--color-cyan) 0.4px, transparent 0.4px);
+  background-size: 16px 16px, 24px 24px;
+  background-position: 0 0, 8px 8px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle gradient wash */
+.projects-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 60% 40% at 80% 20%,
+      rgba(255, 45, 122, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 50% 50% at 20% 80%,
+      rgba(0, 240, 255, 0.06) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main container */
+.projects-container {
+  position: relative;
+  z-index: 5;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.projects-header {
+  margin-bottom: 4rem;
+  padding-left: 2vw;
+}
+
+.projects-marker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: 500;
+  color: var(--color-pink);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.projects-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Comic Panel Grid - Asymmetric layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 1.5rem;
+  grid-template-areas:
+    "ark ark ark ark ark catchlog catchlog catchlog valkyrie valkyrie valkyrie valkyrie"
+    "outreach outreach outreach outreach phi phi phi phi phi userrec userrec userrec"
+    "outreach outreach outreach outreach phi phi phi phi phi userrec userrec userrec";
+}
+
+/* Base panel styles */
+.projects-panel {
+  position: relative;
+  background: rgba(15, 15, 18, 0.95);
+  border: 3px solid var(--color-white);
+  border-radius: 4px;
+  padding: 2rem;
+  cursor: pointer;
+  transform: rotate(var(--panel-rotation));
+  transform-origin: center center;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  will-change: transform;
+  overflow: hidden;
+}
+
+/* Panel halftone overlay */
+.projects-panel__halftone {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px
+  );
+  background-size: 6px 6px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* Size variants */
+.projects-panel--large {
+  min-height: 280px;
+  border-width: 4px;
+}
+
+.projects-panel--medium {
+  min-height: 200px;
+}
+
+.projects-panel--small {
+  min-height: 160px;
+  border-width: 2px;
+}
+
+/* Hover states */
+.projects-panel:hover {
+  border-color: var(--color-cyan);
+  background: rgba(20, 20, 28, 0.98);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 240, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glow effect */
+.projects-panel__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 240, 255, 0.12) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.projects-panel__glow--active {
+  opacity: 1;
+}
+
+/* Content layer */
+.projects-panel__content {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Project name */
+.projects-panel__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  transition: color 0.3s ease;
+}
+
+.projects-panel--small .projects-panel__name {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.projects-panel:hover .projects-panel__name {
+  color: var(--color-cyan);
+}
+
+/* Description */
+.projects-panel__description {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 1.5;
+  flex-grow: 1;
+  transition: color 0.3s ease;
+}
+
+.projects-panel:hover .projects-panel__description {
+  color: var(--color-white);
+}
+
+/* Tags */
+.projects-panel__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.projects-panel__tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.5rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.projects-panel:hover .projects-panel__tag {
+  color: var(--color-cyan);
+  border-color: rgba(0, 240, 255, 0.3);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+/* Corner accents - comic book style */
+.projects-panel__corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projects-panel__corner--tl {
+  top: -2px;
+  left: -2px;
+  border-top: 3px solid var(--color-pink);
+  border-left: 3px solid var(--color-pink);
+}
+
+.projects-panel__corner--br {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 3px solid var(--color-cyan);
+  border-right: 3px solid var(--color-cyan);
+}
+
+.projects-panel:hover .projects-panel__corner {
+  opacity: 1;
+}
+
+/* Large panel special treatment */
+.projects-panel--large .projects-panel__corner {
+  width: 30px;
+  height: 30px;
+}
+
+.projects-panel--large .projects-panel__corner--tl,
+.projects-panel--large .projects-panel__corner--br {
+  border-width: 4px;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "ark ark ark ark ark ark"
+      "catchlog catchlog catchlog valkyrie valkyrie valkyrie"
+      "outreach outreach outreach phi phi phi"
+      "outreach outreach outreach phi phi phi"
+      "userrec userrec userrec userrec userrec userrec";
+    gap: 1.25rem;
+  }
+
+  .projects-panel {
+    transform: rotate(calc(var(--panel-rotation) * 0.6));
+  }
+
+  .projects-panel--large {
+    min-height: 220px;
+  }
+
+  .projects-panel--medium {
+    min-height: 180px;
+  }
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .projects-header {
+    margin-bottom: 2.5rem;
+    padding-left: 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ark"
+      "catchlog"
+      "valkyrie"
+      "outreach"
+      "phi"
+      "userrec";
+    gap: 1rem;
+  }
+
+  .projects-panel {
+    padding: 1.5rem;
+    min-height: auto !important;
+    /* Reduce rotation on mobile */
+    transform: rotate(calc(var(--panel-rotation) * 0.3));
+    border-width: 2px;
+  }
+
+  .projects-panel--large {
+    border-width: 3px;
+  }
+
+  .projects-panel__name {
+    font-size: 1.25rem;
+  }
+
+  .projects-panel__description {
+    font-size: 0.875rem;
+  }
+
+  .projects-panel__tags {
+    margin-top: 0.75rem;
+  }
+
+  .projects-panel__tag {
+    font-size: 0.6rem;
+  }
+
+  .projects-halftone {
+    background-size: 12px 12px, 18px 18px;
+    opacity: 0.04;
+  }
+
+  .projects-panel__corner {
+    width: 12px;
+    height: 12px;
+  }
+
+  .projects-panel__corner--tl,
+  .projects-panel__corner--br {
+    border-width: 2px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 4rem 1rem;
+  }
+
+  .projects-panel {
+    padding: 1.25rem;
+    transform: rotate(calc(var(--panel-rotation) * 0.2));
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .projects-panel {
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .projects-panel__glow {
+    display: none;
+  }
+
+  .projects-panel__corner {
+    opacity: 0.5;
+  }
+}
