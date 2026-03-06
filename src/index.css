@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* ===== Spider-Verse Color Palette ===== */
+:root {
+  --color-bg: #0a0a0a;
+  --color-pink: #ff2d7a;
+  --color-cyan: #00f0ff;
+  --color-white: #ffffff;
+  --color-muted: #a0a0a0;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pink);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-pink) var(--color-bg);
+}
+
+/* ===== Typography Utilities ===== */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ===== Spider-Verse Effects ===== */
+
+/* Halftone Pattern Overlay */
+.halftone {
+  position: relative;
+}
+
+.halftone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--color-pink) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Chromatic Aberration Effect */
+.chromatic {
+  position: relative;
+}
+
+.chromatic::before,
+.chromatic::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.chromatic::before {
+  color: var(--color-cyan);
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-2px, -1px);
+  opacity: 0.8;
+}
+
+.chromatic::after {
+  color: var(--color-pink);
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  transform: translate(2px, 1px);
+  opacity: 0.8;
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Selection Styles */
+::selection {
+  background: var(--color-pink);
+  color: var(--color-white);
+}
+
+/* ===== Link Styles ===== */
+a {
+  color: var(--color-cyan);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-pink);
+}
