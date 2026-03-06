@@ -434,3 +434,136 @@ a:hover {
     filter: blur(80px);
   }
 }
+
+/* ===== Origin Section ===== */
+.origin-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10rem 2rem 8rem;
+  background: var(--color-bg);
+  overflow: hidden;
+
+  /* Diagonal cut at the top edge - 5 degree angle */
+  clip-path: polygon(
+    0 8%,      /* top-left starts lower */
+    100% 0,    /* top-right at very top */
+    100% 100%, /* bottom-right */
+    0 100%     /* bottom-left */
+  );
+
+  /* Slight overlap to hide any seam */
+  margin-top: -4rem;
+}
+
+/* Halftone pattern - continuation from Hero but more subtle */
+.origin-halftone {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at center, var(--color-pink) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle gradient for depth */
+.origin-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse 80% 50% at 10% 30%,
+    rgba(255, 45, 122, 0.03) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Content container */
+.origin-content {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  padding-left: 5vw;
+}
+
+/* Section marker "01" */
+.origin-marker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: 500;
+  color: var(--color-pink);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+/* Main heading */
+.origin-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* Body text */
+.origin-body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 600px;
+}
+
+/* Responsive adjustments for Origin */
+@media (max-width: 768px) {
+  .origin-section {
+    min-height: 70vh;
+    padding: 8rem 1.5rem 6rem;
+    /* Adjust diagonal for mobile */
+    clip-path: polygon(
+      0 5%,
+      100% 0,
+      100% 100%,
+      0 100%
+    );
+    margin-top: -2rem;
+  }
+
+  .origin-content {
+    padding-left: 0;
+  }
+
+  .origin-marker {
+    margin-bottom: 1rem;
+  }
+
+  .origin-heading {
+    margin-bottom: 1rem;
+  }
+
+  .origin-halftone {
+    background-size: 16px 16px;
+    opacity: 0.03;
+  }
+}
+
+/* Reduced motion: no filter animations */
+@media (prefers-reduced-motion: reduce) {
+  .origin-section {
+    /* Instant visibility, no animation blur */
+  }
+}
