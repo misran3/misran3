@@ -1531,3 +1531,296 @@ a:hover {
     opacity: 0.85;
   }
 }
+
+/* ===== Contact Section ===== */
+.contact-section {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 4rem;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* Subtle halftone pattern */
+.contact-halftone {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at center,
+    var(--color-pink) 0.5px,
+    transparent 0.5px
+  );
+  background-size: 20px 20px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Bottom gradient glow - callback to hero energy */
+.contact-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 40%;
+  background: radial-gradient(
+    ellipse 60% 80% at center bottom,
+    rgba(255, 45, 122, 0.08) 0%,
+    rgba(0, 240, 255, 0.04) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Content container */
+.contact-container {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Section marker */
+.contact-marker {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: 500;
+  color: var(--color-pink);
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-marker--visible {
+  animation: contact-fade-in 0.6s ease-out forwards;
+}
+
+/* Icon links container */
+.contact-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+/* Individual icon link */
+.contact-icon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.contact-icon--visible {
+  animation: contact-fade-in 0.6s ease-out forwards;
+}
+
+/* SVG sizing */
+.contact-icon__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Icon layers for chromatic aberration */
+.contact-icon__layer,
+.contact-icon__main {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.contact-icon__main {
+  z-index: 3;
+}
+
+/* Chromatic layers - hidden by default */
+.contact-icon__layer--cyan {
+  color: var(--color-cyan);
+  z-index: 1;
+  opacity: 0;
+  transform: translate(0, 0);
+  mix-blend-mode: screen;
+}
+
+.contact-icon__layer--pink {
+  color: var(--color-pink);
+  z-index: 2;
+  opacity: 0;
+  transform: translate(0, 0);
+  mix-blend-mode: screen;
+}
+
+/* Chromatic aberration on hover */
+.contact-icon:hover .contact-icon__layer--cyan {
+  opacity: 0.9;
+  transform: translate(-3px, -2px);
+}
+
+.contact-icon:hover .contact-icon__layer--pink {
+  opacity: 0.9;
+  transform: translate(3px, 2px);
+}
+
+.contact-icon:hover .contact-icon__main {
+  color: var(--color-white);
+}
+
+/* Subtle pulse animation on idle */
+.contact-icon--visible {
+  animation:
+    contact-fade-in 0.6s ease-out forwards,
+    contact-pulse 4s ease-in-out infinite 1s;
+}
+
+/* Footer */
+.contact-footer {
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-footer--visible {
+  animation: contact-fade-in 0.6s ease-out forwards;
+}
+
+.contact-footer__text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.contact-footer:hover .contact-footer__text {
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes contact-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contact-pulse {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.03) translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-section {
+    min-height: 50vh;
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .contact-container {
+    gap: 2.5rem;
+  }
+
+  .contact-links {
+    gap: 2.5rem;
+  }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contact-halftone {
+    background-size: 16px 16px;
+    opacity: 0.02;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    min-height: 45vh;
+    padding: 4rem 1rem 2.5rem;
+  }
+
+  .contact-container {
+    gap: 2rem;
+  }
+
+  .contact-links {
+    gap: 2rem;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Slightly reduced chromatic offset on mobile */
+  .contact-icon:hover .contact-icon__layer--cyan {
+    transform: translate(-2px, -1px);
+  }
+
+  .contact-icon:hover .contact-icon__layer--pink {
+    transform: translate(2px, 1px);
+  }
+
+  .contact-footer {
+    margin-top: 1.5rem;
+  }
+
+  .contact-footer__text {
+    font-size: 0.65rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .contact-marker,
+  .contact-icon,
+  .contact-footer {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .contact-marker--visible,
+  .contact-icon--visible,
+  .contact-footer--visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Still allow hover effect but instant */
+  .contact-icon__layer--cyan,
+  .contact-icon__layer--pink {
+    transition: none;
+  }
+}
