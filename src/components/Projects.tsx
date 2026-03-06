@@ -1,7 +1,17 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const projects = [
+interface Project {
+  id: number
+  name: string
+  description: string
+  tags: string[]
+  size: 'small' | 'medium' | 'large'
+  rotation: number
+  gridArea: string
+}
+
+const projects: Project[] = [
   {
     id: 1,
     name: 'Ark',
@@ -59,16 +69,16 @@ const projects = [
 ]
 
 export default function Projects() {
-  const sectionRef = useRef(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-  const [hoveredPanel, setHoveredPanel] = useState(null)
+  const [hoveredPanel, setHoveredPanel] = useState<number | null>(null)
 
   // Check for reduced motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setPrefersReducedMotion(mediaQuery.matches)
 
-    const handler = (e) => setPrefersReducedMotion(e.matches)
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
     mediaQuery.addEventListener('change', handler)
     return () => mediaQuery.removeEventListener('change', handler)
   }, [])
@@ -100,26 +110,26 @@ export default function Projects() {
       x: 0,
       transition: {
         duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
   }
 
   const panelVariants = {
-    hidden: (custom) => ({
+    hidden: (custom: Project) => ({
       opacity: 0,
       y: 80,
       rotate: custom.rotation + 8,
       scale: 0.85,
     }),
-    visible: (custom) => ({
+    visible: (custom: Project) => ({
       opacity: 1,
       y: 0,
       rotate: custom.rotation,
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     }),
   }
@@ -176,7 +186,7 @@ export default function Projects() {
                 '--panel-rotation': `${project.rotation}deg`,
                 '--panel-index': index,
                 gridArea: project.gridArea,
-              }}
+              } as React.CSSProperties}
             >
               {/* Halftone overlay for each panel */}
               <div className="projects-panel__halftone" aria-hidden="true" />
