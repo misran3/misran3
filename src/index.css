@@ -160,3 +160,277 @@ a {
 a:hover {
   color: var(--color-pink);
 }
+
+/* ===== Hero Section ===== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* Halftone dot pattern background */
+.hero-halftone {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at center, var(--color-pink) 0.5px, transparent 0.5px),
+    radial-gradient(circle at center, var(--color-cyan) 0.5px, transparent 0.5px);
+  background-size: 24px 24px, 32px 32px;
+  background-position: 0 0, 12px 12px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Atmospheric gradient orbs */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-orb--pink {
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: var(--color-pink);
+  opacity: 0.15;
+  top: -10%;
+  right: -15%;
+  animation: orb-drift 20s ease-in-out infinite alternate;
+}
+
+.hero-orb--cyan {
+  width: 40vw;
+  height: 40vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: var(--color-cyan);
+  opacity: 0.12;
+  bottom: -10%;
+  left: -10%;
+  animation: orb-drift 25s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orb-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  100% {
+    transform: translate(-20px, 30px) scale(0.95);
+  }
+}
+
+/* Scan lines for that CRT effect */
+.hero-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.4;
+}
+
+/* Content container */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Name container for stacked chromatic layers */
+.hero-name-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Base name styles */
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 18vw, 14rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Main white text */
+.hero-name--main {
+  color: var(--color-white);
+  position: relative;
+  z-index: 3;
+  text-shadow:
+    0 0 40px rgba(255, 255, 255, 0.1),
+    0 0 80px rgba(255, 255, 255, 0.05);
+}
+
+/* Cyan chromatic layer */
+.hero-name--cyan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--color-cyan);
+  z-index: 1;
+  mix-blend-mode: screen;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Pink chromatic layer */
+.hero-name--pink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--color-pink);
+  z-index: 2;
+  mix-blend-mode: screen;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Tagline */
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 400;
+  color: var(--color-muted);
+  margin: 1.5rem 0 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 5;
+}
+
+.hero-scroll__text {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  opacity: 0.6;
+}
+
+.hero-scroll__line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-muted) 0%,
+    transparent 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-scroll__dot {
+  width: 3px;
+  height: 3px;
+  background: var(--color-pink);
+  border-radius: 50%;
+  position: absolute;
+  left: -1px;
+  top: 0;
+  animation: scroll-pulse 2s ease-in-out infinite;
+  box-shadow:
+    0 0 6px var(--color-pink),
+    0 0 12px var(--color-pink);
+}
+
+@keyframes scroll-pulse {
+  0%, 100% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 100%;
+    opacity: 0.3;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb--pink,
+  .hero-orb--cyan {
+    animation: none;
+  }
+
+  .hero-scroll__dot {
+    animation: none;
+    opacity: 1;
+    top: 0;
+  }
+
+  .hero-name--cyan,
+  .hero-name--pink {
+    transition: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: clamp(2.5rem, 20vw, 6rem);
+  }
+
+  .hero-tagline {
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-scroll {
+    bottom: 1.5rem;
+  }
+
+  .hero-scroll__line {
+    height: 40px;
+  }
+
+  .hero-halftone {
+    background-size: 16px 16px, 20px 20px;
+    background-position: 0 0, 8px 8px;
+    opacity: 0.06;
+  }
+
+  .hero-orb--pink {
+    opacity: 0.1;
+    filter: blur(80px);
+  }
+
+  .hero-orb--cyan {
+    opacity: 0.08;
+    filter: blur(80px);
+  }
+}
