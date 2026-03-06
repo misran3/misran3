@@ -1,11 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 
+interface MousePosition {
+  x: number
+  y: number
+}
+
 export default function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 })
   const [isLoaded, setIsLoaded] = useState(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-  const heroRef = useRef(null)
+  const heroRef = useRef<HTMLElement>(null)
   const controls = useAnimation()
 
   // Check for reduced motion preference
@@ -13,7 +18,7 @@ export default function Hero() {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setPrefersReducedMotion(mediaQuery.matches)
 
-    const handler = (e) => setPrefersReducedMotion(e.matches)
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
     mediaQuery.addEventListener('change', handler)
     return () => mediaQuery.removeEventListener('change', handler)
   }, [])
@@ -36,7 +41,7 @@ export default function Hero() {
   }, [controls, prefersReducedMotion])
 
   // Mouse tracking for reactive effect
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (prefersReducedMotion || !heroRef.current) return
 
     const rect = heroRef.current.getBoundingClientRect()
@@ -46,7 +51,7 @@ export default function Hero() {
   }
 
   // Calculate chromatic offset based on mouse proximity to center
-  const getOffset = (baseOffset, intensity = 1) => {
+  const getOffset = (baseOffset: number, intensity = 1) => {
     if (prefersReducedMotion) return { x: 0, y: 0 }
 
     const centerX = 0.5
@@ -92,7 +97,7 @@ export default function Hero() {
       transition: {
         duration: 1.2,
         times: [0, 0.2, 0.4, 0.6, 0.8, 1],
-        ease: 'easeOut'
+        ease: 'easeOut' as const
       }
     },
     settle: {
@@ -116,14 +121,14 @@ export default function Hero() {
       transition: {
         duration: 1.4,
         times: [0, 0.25, 0.5, 0.75, 1],
-        ease: 'easeOut'
+        ease: 'easeOut' as const
       }
     },
     settle: {
       opacity: 0.7,
       x: -4,
       y: -2,
-      transition: { duration: 0.3, ease: 'easeOut' }
+      transition: { duration: 0.3, ease: 'easeOut' as const }
     }
   }
 
@@ -140,14 +145,14 @@ export default function Hero() {
       transition: {
         duration: 1.4,
         times: [0, 0.25, 0.5, 0.75, 1],
-        ease: 'easeOut'
+        ease: 'easeOut' as const
       }
     },
     settle: {
       opacity: 0.7,
       x: 4,
       y: 2,
-      transition: { duration: 0.3, ease: 'easeOut' }
+      transition: { duration: 0.3, ease: 'easeOut' as const }
     }
   }
 
@@ -170,7 +175,7 @@ export default function Hero() {
       transition: {
         duration: 0.8,
         delay: 0.2,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number]
       }
     }
   }
