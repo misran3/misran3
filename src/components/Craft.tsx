@@ -1,7 +1,16 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const craftItems = [
+interface CraftItem {
+  id: number
+  title: string
+  description: string
+  rotation: number
+  hoverX: number
+  hoverY: number
+}
+
+const craftItems: CraftItem[] = [
   {
     id: 1,
     title: 'Distributed Systems',
@@ -37,16 +46,16 @@ const craftItems = [
 ]
 
 export default function Craft() {
-  const sectionRef = useRef(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-  const [hoveredCard, setHoveredCard] = useState(null)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   // Check for reduced motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setPrefersReducedMotion(mediaQuery.matches)
 
-    const handler = (e) => setPrefersReducedMotion(e.matches)
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
     mediaQuery.addEventListener('change', handler)
     return () => mediaQuery.removeEventListener('change', handler)
   }, [])
@@ -78,7 +87,7 @@ export default function Craft() {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
   }
@@ -95,26 +104,26 @@ export default function Craft() {
       filter: 'blur(0px)',
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
   }
 
   const cardVariants = {
-    hidden: (custom) => ({
+    hidden: (custom: CraftItem) => ({
       opacity: 0,
       y: 60,
       rotate: custom.rotation + 5,
       filter: 'blur(4px)',
     }),
-    visible: (custom) => ({
+    visible: (custom: CraftItem) => ({
       opacity: 1,
       y: 0,
       rotate: custom.rotation,
       filter: 'blur(0px)',
       transition: {
         duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     }),
   }
@@ -184,7 +193,7 @@ export default function Craft() {
                 style={{
                   '--card-rotation': `${item.rotation}deg`,
                   '--card-index': index,
-                }}
+                } as React.CSSProperties}
               >
                 <div className="craft-card__content">
                   <h3 className="craft-card__title">{item.title}</h3>
