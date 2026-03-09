@@ -1,5 +1,5 @@
 import Hero from './components/Hero'
-import Origin from './components/Origin'
+import Why from './components/Why'
 import Craft from './components/Craft'
 import Projects from './components/Projects'
 import Now from './components/Now'
@@ -9,7 +9,7 @@ function App() {
   return (
     <main>
       <Hero />
-      <Origin />
+      <Why />
       <Craft />
       <Projects />
       <Now />
