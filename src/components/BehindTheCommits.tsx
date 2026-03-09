@@ -117,10 +117,9 @@ export default function BehindTheCommits() {
             <div className="behind-interests__grid">
               {interests.map((interest, index) => (
                 <motion.div
-                  key={interest.label}
+                  key={index}
                   className="behind-interest"
                   variants={interestVariants}
-                  custom={index}
                 >
                   <span className="behind-interest__icon">{interest.icon}</span>
                   <span className="behind-interest__label">{interest.label}</span>
