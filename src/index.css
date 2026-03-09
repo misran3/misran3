@@ -490,7 +490,7 @@ a:hover {
 .origin-content {
   position: relative;
   z-index: 5;
-  max-width: 900px;
+  max-width: 1000px;
   padding-left: 5vw;
 }
 
@@ -515,6 +515,15 @@ a:hover {
   line-height: 1.1;
   margin: 0 0 1.5rem;
   letter-spacing: -0.02em;
+}
+
+/* Tagline */
+.origin-tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-muted);
+  margin: 0 0 2rem;
+  font-style: italic;
 }
 
 /* Body text */
@@ -575,7 +584,7 @@ a:hover {
   border-radius: 8px;
   overflow: hidden;
   font-family: var(--font-mono);
-  max-width: 600px;
+  width: 100%;
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.4),
     0 0 40px rgba(0, 240, 255, 0.03);
@@ -644,10 +653,6 @@ a:hover {
 
 /* Terminal responsive */
 @media (max-width: 768px) {
-  .terminal {
-    max-width: 100%;
-  }
-
   .terminal__body {
     padding: 16px;
   }

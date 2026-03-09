@@ -4,10 +4,10 @@ import Terminal from './Terminal'
 
 const terminalLines = [
   { text: 'ps aux | grep misran', isCommand: true, delay: 400 },
-  { text: 'learning    always running', isCommand: false, delay: 200 },
-  { text: 'building    always running', isCommand: false, delay: 200 },
-  { text: 'shipping    always running', isCommand: false, delay: 200 },
-  { text: 'stopping    not found', isCommand: false, delay: 0 },
+  { text: 'misran   1337  99.9  ∞     learning    always running', isCommand: false, delay: 200 },
+  { text: 'misran   1338  99.9  ∞     building    always running', isCommand: false, delay: 200 },
+  { text: 'misran   1339  99.9  ∞     shipping    always running', isCommand: false, delay: 200 },
+  { text: 'misran   ----  ----  -     stopping    not found', isCommand: false, delay: 0 },
 ]
 
 export default function Why() {
@@ -86,6 +86,10 @@ export default function Why() {
         <motion.h2 className="origin-heading" variants={headingVariants}>
           Why
         </motion.h2>
+
+        <motion.p className="origin-tagline" variants={headingVariants}>
+          Love the craft. Love the grind.
+        </motion.p>
 
         <motion.div variants={terminalVariants}>
           <Terminal
