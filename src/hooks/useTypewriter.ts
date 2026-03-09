@@ -33,16 +33,14 @@ export function useTypewriter({
   const [isComplete, setIsComplete] = useState(false)
   const [hasStarted, setHasStarted] = useState(false)
 
-  // Reset when disabled
+  // Reset when disabled or lines change
   useEffect(() => {
-    if (!enabled) {
-      setDisplayedLines([])
-      setCurrentLineIndex(0)
-      setCurrentCharIndex(0)
-      setIsComplete(false)
-      setHasStarted(false)
-    }
-  }, [enabled])
+    setDisplayedLines([])
+    setCurrentLineIndex(0)
+    setCurrentCharIndex(0)
+    setIsComplete(false)
+    setHasStarted(false)
+  }, [enabled, lines])
 
   // Start delay
   useEffect(() => {
