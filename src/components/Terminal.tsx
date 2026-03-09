@@ -28,12 +28,12 @@ export default function Terminal({
 
   return (
     <div className={`terminal ${className}`}>
-      <div className="terminal__header">
+      <div className="terminal__header" aria-hidden="true">
         <span className="terminal__dot terminal__dot--red" />
         <span className="terminal__dot terminal__dot--yellow" />
         <span className="terminal__dot terminal__dot--green" />
       </div>
-      <div className="terminal__body">
+      <div className="terminal__body" role="log" aria-live="polite">
         {lines.map((line, index) => {
           const displayedText = displayedLines[index] || ''
           const isCurrentLine = index === currentLineIndex
@@ -49,8 +49,7 @@ export default function Terminal({
               animate={{ opacity: 1 }}
               transition={{ duration: 0.1 }}
             >
-              {line.isCommand && <span className="terminal__prompt">$</span>}
-              {!line.isCommand && <span className="terminal__prompt">&gt;</span>}
+              <span className="terminal__prompt">{line.isCommand ? '$' : '>'}</span>
               <span className="terminal__text">{displayedText}</span>
               {isCurrentLine && !isComplete && (
                 <motion.span
