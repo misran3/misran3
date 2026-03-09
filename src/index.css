@@ -648,7 +648,7 @@ a:hover {
 }
 
 .terminal__year {
-  color: var(--spider-cyan);
+  color: var(--color-cyan);
 }
 
 .terminal__cursor {
