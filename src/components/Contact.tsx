@@ -99,7 +99,7 @@ export default function Contact() {
           className={`contact-marker ${isVisible ? 'contact-marker--visible' : ''}`}
           style={{ animationDelay: prefersReducedMotion ? '0s' : '0s' }}
         >
-          05
+          06
         </span>
 
         {/* Icon links */}

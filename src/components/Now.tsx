@@ -104,7 +104,7 @@ export default function Now() {
       >
         {/* Section marker */}
         <motion.span className="now-marker" variants={markerVariants}>
-          04
+          05
         </motion.span>
 
         {/* Main quote */}

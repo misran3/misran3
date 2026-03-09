@@ -206,7 +206,7 @@ export default function Craft() {
         {/* Left column: Marker and Heading */}
         <div className="craft-left">
           <motion.span className="craft-marker" variants={markerVariants}>
-            02
+            03
           </motion.span>
 
           <motion.h2 className="craft-heading" variants={headingVariants}>
