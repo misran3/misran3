@@ -833,15 +833,31 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .behind-journey {
-  /* Terminal column */
+  display: flex;
+  flex-direction: column;
+}
+
+.behind-journey .terminal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.behind-journey .terminal__body {
+  flex: 1;
 }
 
 .behind-interests {
-  /* Hobbies column */
+  display: flex;
+  flex-direction: column;
+}
+
+.behind-interests__grid {
+  flex: 1;
 }
 
 .behind-interests__title {
@@ -856,6 +872,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .behind-interest {
