@@ -4,11 +4,27 @@ import Terminal from './Terminal'
 
 const journeyLines = [
   { text: 'git log --oneline life', isCommand: true, delay: 400 },
-  { text: '2015 - first line of code', isCommand: false, delay: 200 },
-  { text: '2018 - fell in love with the craft', isCommand: false, delay: 200 },
-  { text: '2022 - mass systems built', isCommand: false, delay: 200 },
-  { text: '2024 - still not bored', isCommand: false, delay: 200 },
-  { text: 'now  - building what\'s next', isCommand: false, delay: 0 },
+  { text: '2020 - covid lockdown, taught myself to code', isCommand: false, delay: 200 },
+  { text: '2022 - first internship at Kickdrum, 6 months of real work', isCommand: false, delay: 200 },
+  { text: '2022 - first production deploy', isCommand: false, delay: 200 },
+  { text: '2022 - graduated, went full-time at kickdrum', isCommand: false, delay: 200 },
+  { text: '2022 - earned trust early, drummer award -- kickdrum\'s highest honor, promoted in 6 months', isCommand: false, delay: 200 },
+  { text: '2023 - new challenges, unfamiliar territory, learned fast, delivered', isCommand: false, delay: 200 },
+  { text: '2023 - good work speaks, customers requested me, pulled into more projects', isCommand: false, delay: 200 },
+  { text: '2023 - trusted to lead, not just code', isCommand: false, delay: 200 },
+  { text: '2023 - another drummer award, recognized for leadership and architect-level contributions', isCommand: false, delay: 200 },
+  { text: '2024 - new chapter, master\'s at pitt, first in family to study abroad', isCommand: false, delay: 200 },
+  { text: '2024 - interned at pitt, kept the coding momentum going', isCommand: false, delay: 200 },
+  { text: '2025 - cmu\'s cloud computing, all-nighters, live tests, real-world projects', isCommand: false, delay: 200 },
+  { text: '2025 - joined aws cloud innovation center, first on the east coast, connections paid off', isCommand: false, delay: 200 },
+  { text: '2025 - smart outreach hub, first open-source project, pitched to business audiences', isCommand: false, delay: 200 },
+  { text: '2025 - hackathon, built for the disabled community', isCommand: false, delay: 200 },
+  { text: '2025 - devhouse sf, top 100 builders, shipped an AI assistant in 7 days', isCommand: false, delay: 200 },
+  { text: '2026 - tartanhacks, 2nd best AI for decision support, 24 hours no sleep', isCommand: false, delay: 200 },
+  { text: '2026 - columbia hackathon, ai for good, kept the streak going', isCommand: false, delay: 200 },
+  { text: '2026 - flew from pittsburgh to sf, google deepmind x instalily ai hackathon, shipped in 8 hours, top 6 finalist', isCommand: false, delay: 200 },
+  { text: '2026 - built phi deidentification solution, second open-source at aws cic', isCommand: false, delay: 200 },
+  { text: 'now  - still building at forefront of AI, never stopping', isCommand: false, delay: 0 },
 ]
 
 const interests = [
