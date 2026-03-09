@@ -213,6 +213,10 @@ export default function Craft() {
             What I<br />
             <span className="craft-heading--accent">build</span>
           </motion.h2>
+
+          <motion.p className="craft-tagline" variants={headingVariants}>
+            Tech-agnostic, results-focused
+          </motion.p>
         </div>
 
         {/* Right column: Skewed cards */}
