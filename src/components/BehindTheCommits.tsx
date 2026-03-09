@@ -5,7 +5,7 @@ import Terminal from './Terminal'
 const journeyLines = [
   { text: 'git log --oneline life', isCommand: true, delay: 400 },
   { text: '2020 - covid lockdown, taught myself to code', isCommand: false, delay: 200 },
-  { text: '2022 - first internship at Kickdrum, 6 months of real work', isCommand: false, delay: 200 },
+  { text: '2022 - first internship at kickdrum, 6 months of real work', isCommand: false, delay: 200 },
   { text: '2022 - first production deploy', isCommand: false, delay: 200 },
   { text: '2022 - graduated, went full-time at kickdrum', isCommand: false, delay: 200 },
   { text: '2022 - earned trust early, drummer award -- kickdrum\'s highest honor, promoted in 6 months', isCommand: false, delay: 200 },
