@@ -717,6 +717,15 @@ a:hover {
     0 0 80px rgba(0, 240, 255, 0.15);
 }
 
+.craft-tagline {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  color: var(--color-muted);
+  margin-top: 1rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
 /* Right column: cards container */
 .craft-right {
   padding-right: 3vw;
