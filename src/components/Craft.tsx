@@ -127,21 +127,6 @@ export default function Craft() {
     },
   }
 
-  const markerVariants = {
-    hidden: {
-      opacity: 0,
-      x: -20,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
-      },
-    },
-  }
-
   const headingVariants = {
     hidden: {
       opacity: 0,
@@ -203,12 +188,8 @@ export default function Craft() {
         initial="hidden"
         animate={animationState}
       >
-        {/* Left column: Marker and Heading */}
+        {/* Left column: Heading */}
         <div className="craft-left">
-          <motion.span className="craft-marker" variants={markerVariants}>
-            03
-          </motion.span>
-
           <motion.h2 className="craft-heading" variants={headingVariants}>
             What I<br />
             <span className="craft-heading--accent">build</span>

@@ -154,7 +154,6 @@ export default function Projects() {
       >
         {/* Header */}
         <motion.header className="projects-header" variants={headerVariants}>
-          <span className="projects-marker">04</span>
           <h2 className="projects-heading">Things I've built</h2>
         </motion.header>
 

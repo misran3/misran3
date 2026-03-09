@@ -94,14 +94,6 @@ export default function Contact() {
 
       {/* Main content */}
       <div className="contact-container">
-        {/* Section marker */}
-        <span
-          className={`contact-marker ${isVisible ? 'contact-marker--visible' : ''}`}
-          style={{ animationDelay: prefersReducedMotion ? '0s' : '0s' }}
-        >
-          06
-        </span>
-
         {/* Icon links */}
         <nav className="contact-links" aria-label="Social links">
           {contactLinks.map((link) => (

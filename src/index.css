@@ -795,9 +795,9 @@ a:hover {
 .behind-content {
   position: relative;
   z-index: 5;
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  padding-left: 5vw;
 }
 
 .behind-marker {
@@ -1019,7 +1019,7 @@ a:hover {
 
 /* Left column */
 .craft-left {
-  padding-left: 3vw;
+  padding-left: 5vw;
 }
 
 .craft-marker {

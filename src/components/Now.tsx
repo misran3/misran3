@@ -32,21 +32,6 @@ export default function Now() {
     },
   }
 
-  const markerVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
-      },
-    },
-  }
-
   const quoteVariants = {
     hidden: {
       opacity: 0,
@@ -102,11 +87,6 @@ export default function Now() {
         initial="hidden"
         animate={animationState}
       >
-        {/* Section marker */}
-        <motion.span className="now-marker" variants={markerVariants}>
-          05
-        </motion.span>
-
         {/* Main quote */}
         <motion.blockquote className="now-quote" variants={quoteVariants}>
           <p className="now-quote__text">
