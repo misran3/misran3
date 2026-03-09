@@ -5,7 +5,6 @@ import CodeSnippet from './CodeSnippet'
 const codeLines = [
   { text: 'function build() {', delay: 300 },
   { text: '  const passion = true;', delay: 200 },
-  { text: '  let problems = [];', delay: 200 },
   { text: '', delay: 100 },
   { text: '  while (passion) {', delay: 300 },
   { text: '    if (problems.length > 0) {', delay: 200 },
