@@ -1,13 +1,24 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import Terminal from './Terminal'
+import CodeSnippet from './CodeSnippet'
 
-const terminalLines = [
-  { text: 'ps aux | grep misran', isCommand: true, delay: 400 },
-  { text: 'misran   1337  99.9  ∞     learning    always running', isCommand: false, delay: 200 },
-  { text: 'misran   1338  99.9  ∞     building    always running', isCommand: false, delay: 200 },
-  { text: 'misran   1339  99.9  ∞     shipping    always running', isCommand: false, delay: 200 },
-  { text: 'misran   ----  ----  -     stopping    not found', isCommand: false, delay: 0 },
+const codeLines = [
+  { text: 'function build() {', delay: 300 },
+  { text: '  const passion = true;', delay: 200 },
+  { text: '  let problems = [];', delay: 200 },
+  { text: '', delay: 100 },
+  { text: '  while (passion) {', delay: 300 },
+  { text: '    if (problems.length > 0) {', delay: 200 },
+  { text: '      analyze(problems);', delay: 200 },
+  { text: '      solve(problems);', delay: 200 },
+  { text: '    } else {', delay: 200 },
+  { text: '      learn();', delay: 200 },
+  { text: '      create();', delay: 200 },
+  { text: '    }', delay: 200 },
+  { text: '', delay: 100 },
+  { text: '    ship();', delay: 200 },
+  { text: '  }', delay: 200 },
+  { text: '}', delay: 0 },
 ]
 
 export default function Why() {
@@ -92,10 +103,10 @@ export default function Why() {
         </motion.p>
 
         <motion.div variants={terminalVariants}>
-          <Terminal
-            lines={terminalLines}
+          <CodeSnippet
+            lines={codeLines}
             enabled={isInView && !prefersReducedMotion}
-            typingSpeed={40}
+            typingSpeed={30}
           />
         </motion.div>
       </motion.div>
