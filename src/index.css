@@ -651,6 +651,11 @@ a:hover {
   color: var(--color-cyan);
 }
 
+.terminal__tab {
+  display: inline-block;
+  width: 2ch;
+}
+
 .terminal__cursor {
   color: var(--color-cyan);
   margin-left: 2px;

@@ -17,11 +17,12 @@ interface TerminalProps {
 // Parse line to highlight year or "now" prefix
 function renderLineWithHighlight(text: string) {
   // Match year pattern (e.g., "2020 - ", "2022 - ") or "now  - " at start
-  const match = text.match(/^((?:20\d{2}|now)\s*-\s*)(.*)$/)
+  const match = text.match(/^((?:20\d{2}|now)\s*)-\s*(.*)$/)
   if (match) {
     return (
       <>
         <span className="terminal__year">{match[1]}</span>
+        <span className="terminal__tab">{'\t'}</span>
         <span>{match[2]}</span>
       </>
     )
