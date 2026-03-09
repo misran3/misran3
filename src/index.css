@@ -855,7 +855,6 @@ a:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-height: 350px;
 }
 
 .behind-journey .terminal__body {
