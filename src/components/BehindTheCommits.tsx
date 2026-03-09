@@ -28,10 +28,10 @@ const journeyLines = [
 ]
 
 const interests = [
-  { icon: '🏸', label: 'Badminton' },
-  { icon: '🎵', label: 'Music' },
-  { icon: '📖', label: 'Placeholder' },
-  { icon: '🎮', label: 'Placeholder' },
+  { icon: '🏸', label: 'weekend badminton with friends' },
+  { icon: '🎵', label: 'rock, hip-hop, and everything between' },
+  { icon: '🍗', label: 'cooking since moving out' },
+  { icon: '📸', label: 'casual clicks for the stories' },
 ]
 
 export default function BehindTheCommits() {
