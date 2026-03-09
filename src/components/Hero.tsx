@@ -256,7 +256,7 @@ export default function Hero() {
           className="hero-tagline"
           variants={taglineVariants}
         >
-          I build things that scale
+          I build stuff
         </motion.p>
       </motion.div>
 
