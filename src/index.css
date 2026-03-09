@@ -489,6 +489,7 @@ a:hover {
 .origin-content {
   position: relative;
   z-index: 5;
+  width: 100%;
   max-width: 1000px;
   padding-left: 5vw;
 }
