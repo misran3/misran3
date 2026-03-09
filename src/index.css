@@ -817,23 +817,32 @@ a:hover {
   font-weight: 700;
   color: var(--color-white);
   line-height: 1.1;
-  margin: 0 0 3rem;
+  margin: 0 0 1rem;
   letter-spacing: -0.02em;
 }
 
+.behind-tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-style: italic;
+  color: var(--color-muted);
+  margin: 0 0 2.5rem;
+}
+
 .behind-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
 .behind-journey {
-  /* Terminal container */
+  width: 100%;
+  max-width: 500px;
 }
 
 .behind-interests {
-  padding-top: 1rem;
+  width: 100%;
 }
 
 .behind-interests__title {
@@ -845,8 +854,8 @@ a:hover {
 }
 
 .behind-interests__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 

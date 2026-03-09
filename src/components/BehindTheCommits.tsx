@@ -90,6 +90,10 @@ export default function BehindTheCommits() {
           Behind the commits
         </motion.h2>
 
+        <motion.p className="behind-tagline" variants={headingVariants}>
+          The journey so far. And life beyond the code.
+        </motion.p>
+
         <div className="behind-grid">
           <motion.div className="behind-journey" variants={contentVariants}>
             <Terminal
@@ -100,7 +104,6 @@ export default function BehindTheCommits() {
           </motion.div>
 
           <motion.div className="behind-interests" variants={contentVariants}>
-            <h3 className="behind-interests__title">When I'm not coding</h3>
             <div className="behind-interests__grid">
               {interests.map((interest, index) => (
                 <motion.div
