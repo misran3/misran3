@@ -830,19 +830,18 @@ a:hover {
 }
 
 .behind-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: start;
 }
 
 .behind-journey {
-  width: 100%;
-  max-width: 500px;
+  /* Terminal column */
 }
 
 .behind-interests {
-  width: 100%;
+  /* Hobbies column */
 }
 
 .behind-interests__title {
@@ -854,8 +853,8 @@ a:hover {
 }
 
 .behind-interests__grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
