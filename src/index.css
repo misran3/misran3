@@ -647,18 +647,19 @@ a:hover {
   color: var(--color-muted);
 }
 
+.terminal__line--grid {
+  display: grid;
+  grid-template-columns: auto 50px 1fr;
+  gap: 0 0.5rem;
+}
+
 .terminal__year {
   color: var(--color-cyan);
+  min-width: 40px;
 }
 
-.terminal__tab {
-  display: inline-block;
-  width: 2ch;
-}
-
-.terminal__cursor {
-  color: var(--color-cyan);
-  margin-left: 2px;
+.terminal__desc {
+  color: var(--color-muted);
 }
 
 /* Terminal responsive */
