@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTypewriter } from '../hooks/useTypewriter'
 
@@ -26,6 +27,15 @@ export default function Terminal({
     enabled,
   })
 
+  const bodyRef = useRef<HTMLDivElement>(null)
+
+  // Auto-scroll to bottom when new content is typed
+  useEffect(() => {
+    if (bodyRef.current) {
+      bodyRef.current.scrollTop = bodyRef.current.scrollHeight
+    }
+  }, [displayedLines])
+
   return (
     <div className={`terminal ${className}`}>
       <div className="terminal__header" aria-hidden="true">
@@ -33,7 +43,7 @@ export default function Terminal({
         <span className="terminal__dot terminal__dot--yellow" />
         <span className="terminal__dot terminal__dot--green" />
       </div>
-      <div className="terminal__body" role="log" aria-live="polite">
+      <div className="terminal__body" role="log" aria-live="polite" ref={bodyRef}>
         {lines.map((line, index) => {
           const displayedText = displayedLines[index] || ''
           const isCurrentLine = index === currentLineIndex
