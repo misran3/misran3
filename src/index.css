@@ -657,6 +657,136 @@ a:hover {
   }
 }
 
+/* ===== Behind The Commits Section ===== */
+.behind-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.behind-halftone {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at center, var(--color-cyan) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.behind-content {
+  position: relative;
+  z-index: 5;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.behind-marker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: 500;
+  color: var(--color-cyan);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.behind-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.1;
+  margin: 0 0 3rem;
+  letter-spacing: -0.02em;
+}
+
+.behind-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.behind-journey {
+  /* Terminal container */
+}
+
+.behind-interests {
+  padding-top: 1rem;
+}
+
+.behind-interests__title {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: var(--color-muted);
+  margin: 0 0 1.5rem;
+}
+
+.behind-interests__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.behind-interest {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.behind-interest:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 240, 255, 0.2);
+}
+
+.behind-interest__icon {
+  font-size: 1.5rem;
+}
+
+.behind-interest__label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-white);
+}
+
+/* Behind section responsive */
+@media (max-width: 900px) {
+  .behind-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .behind-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .behind-content {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .behind-section {
+    padding: 4rem 1rem;
+  }
+
+  .behind-interests__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== Craft Section ===== */
 .craft-section {
   position: relative;
