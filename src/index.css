@@ -845,10 +845,32 @@ a:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
+  max-height: 400px;
 }
 
 .behind-journey .terminal__body {
   flex: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for terminal */
+.behind-journey .terminal__body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.behind-journey .terminal__body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.behind-journey .terminal__body::-webkit-scrollbar-thumb {
+  background: var(--color-cyan);
+  border-radius: 4px;
+}
+
+.behind-journey .terminal__body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pink);
 }
 
 .behind-interests {
@@ -915,6 +937,12 @@ a:hover {
 
   .behind-content {
     padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .behind-journey .terminal {
+    max-height: 350px;
   }
 }
 
