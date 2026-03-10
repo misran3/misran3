@@ -1702,12 +1702,12 @@ a:hover {
   color: var(--color-cyan);
 }
 
-/* Expanded Projects Grid - Asymmetric layout for 8 panels */
+/* Expanded Projects Grid - Asymmetric layout for 11 panels */
 .projects-grid--expanded {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-rows: auto;
   gap: 1.5rem;
 }
 
@@ -1743,13 +1743,29 @@ a:hover {
   min-height: 240px;
 }
 
-/* Row 3: 2 panels (6+6 = 12) */
+/* Row 3: 3 panels (3+5+4 = 12) */
 .projects-grid--expanded > .projects-panel:nth-child(7) {
-  grid-column: span 6;
+  grid-column: span 3;
   min-height: 240px;
 }
 
 .projects-grid--expanded > .projects-panel:nth-child(8) {
+  grid-column: span 5;
+  min-height: 240px;
+}
+
+.projects-grid--expanded > .projects-panel:nth-child(9) {
+  grid-column: span 4;
+  min-height: 240px;
+}
+
+/* Row 4: 2 panels (6+6 = 12) */
+.projects-grid--expanded > .projects-panel:nth-child(10) {
+  grid-column: span 6;
+  min-height: 240px;
+}
+
+.projects-grid--expanded > .projects-panel:nth-child(11) {
   grid-column: span 6;
   min-height: 240px;
 }
