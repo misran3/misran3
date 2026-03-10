@@ -1536,7 +1536,7 @@ a:hover {
 .projects-panel__header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
