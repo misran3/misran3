@@ -31,7 +31,10 @@ export default function Hero() {
         return
       }
 
-      // Wait a beat, then start the glitch entrance
+      // Wait a beat, then start the intro fade
+      await new Promise(resolve => setTimeout(resolve, 200))
+      await controls.start('fadeIn')
+      // Brief pause before name glitches in
       await new Promise(resolve => setTimeout(resolve, 200))
       await controls.start('glitchIn')
       await controls.start('settle')
