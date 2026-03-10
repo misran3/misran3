@@ -180,6 +180,26 @@ export default function Hero() {
     }
   }
 
+  const introVariants = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    fadeIn: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: 'easeOut' as const
+      }
+    },
+    settle: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0 }
+    }
+  }
+
   const scrollIndicatorVariants = {
     hidden: { opacity: 0, y: -20 },
     settle: {
