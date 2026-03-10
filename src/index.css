@@ -1833,7 +1833,7 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .projects-grid > .projects-panel {
+  .projects-grid:not(.projects-grid--expanded) > .projects-panel:nth-child(n) {
     grid-column: span 1;
     min-height: auto;
   }
