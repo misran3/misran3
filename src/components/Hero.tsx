@@ -239,6 +239,14 @@ export default function Hero() {
         initial="hidden"
         animate={controls}
       >
+        {/* Intro text */}
+        <motion.p
+          className="hero-intro"
+          variants={introVariants}
+        >
+          Hi, I'm
+        </motion.p>
+
         {/* Main name with chromatic aberration */}
         <div className="hero-name-container">
           {/* Cyan layer (behind) */}
