@@ -1417,7 +1417,7 @@ a:hover {
 }
 
 .projects-grid:not(.projects-grid--expanded) > .projects-panel:nth-child(1) {
-  grid-column: span 5;
+  grid-column: span 3;
   min-height: 280px;
 }
 
@@ -1427,17 +1427,17 @@ a:hover {
 }
 
 .projects-grid:not(.projects-grid--expanded) > .projects-panel:nth-child(3) {
-  grid-column: span 3;
+  grid-column: span 5;
   min-height: 280px;
 }
 
 .projects-grid:not(.projects-grid--expanded) > .projects-panel:nth-child(4) {
-  grid-column: span 4;
+  grid-column: span 5;
   min-height: 240px;
 }
 
 .projects-grid:not(.projects-grid--expanded) > .projects-panel:nth-child(5) {
-  grid-column: span 5;
+  grid-column: span 4;
   min-height: 240px;
 }
 
