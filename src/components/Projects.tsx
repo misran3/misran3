@@ -155,6 +155,7 @@ export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const [hoveredPanel, setHoveredPanel] = useState<number | null>(null)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   // Check for reduced motion preference
   useEffect(() => {
@@ -217,11 +218,36 @@ export default function Projects() {
     }),
   }
 
+  const glitchVariants = {
+    hidden: {
+      opacity: 0,
+      x: -20,
+      filter: 'blur(8px)',
+    },
+    visible: (index: number) => ({
+      opacity: 1,
+      x: 0,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.4,
+        delay: index * 0.08,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    }),
+  }
+
   const animationState = prefersReducedMotion
     ? 'visible'
     : isInView
       ? 'visible'
       : 'hidden'
+
+  const getTagClassName = (tag: string) => {
+    const base = 'projects-panel__tag'
+    if (tag === 'Hackathon') return `${base} projects-panel__tag--hackathon`
+    if (tag === 'Open Source') return `${base} projects-panel__tag--opensource`
+    return base
+  }
 
   return (
     <section ref={sectionRef} id="projects" className="projects-section">
