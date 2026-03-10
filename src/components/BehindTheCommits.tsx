@@ -112,11 +112,7 @@ export default function BehindTheCommits() {
 
         <div className="behind-grid">
           <motion.div className="behind-journey" variants={contentVariants}>
-            <Terminal
-              lines={journeyLines}
-              enabled={isInView && !prefersReducedMotion}
-              typingSpeed={35}
-            />
+            <Terminal lines={journeyLines} />
           </motion.div>
 
           <motion.div className="behind-interests" variants={contentVariants}>

@@ -100,7 +100,7 @@ export default function CodeSnippet({
         <span className="code-snippet__dot code-snippet__dot--green" />
       </div>
       <div className="code-snippet__body" role="log" aria-live="polite">
-        {lines.map((line, index) => {
+        {lines.map((_, index) => {
           const displayedText = displayedLines[index] || ''
           const isCurrentLine = index === currentLineIndex
           const isTyped = index < currentLineIndex || (index === currentLineIndex && displayedText.length > 0)
