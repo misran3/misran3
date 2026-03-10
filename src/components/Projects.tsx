@@ -219,18 +219,20 @@ export default function Projects() {
   }
 
   const glitchVariants = {
-    hidden: {
+    hidden: (custom: { index: number; rotation: number }) => ({
       opacity: 0,
       x: -20,
       filter: 'blur(8px)',
-    },
-    visible: (index: number) => ({
+      rotate: custom.rotation + 8,
+    }),
+    visible: (custom: { index: number; rotation: number }) => ({
       opacity: 1,
       x: 0,
       filter: 'blur(0px)',
+      rotate: custom.rotation,
       transition: {
         duration: 0.4,
-        delay: index * 0.08,
+        delay: custom.index * 0.08,
         ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     }),
@@ -253,7 +255,7 @@ export default function Projects() {
     <motion.article
       key={project.id}
       className="projects-panel"
-      custom={useGlitch ? index : project}
+      custom={useGlitch ? { index, rotation: project.rotation } : project}
       variants={useGlitch ? glitchVariants : panelVariants}
       initial="hidden"
       animate={isExpanded || !useGlitch ? animationState : 'hidden'}
