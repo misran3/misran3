@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import Terminal from './Terminal'
+import Terminal, { TerminalLine } from './Terminal'
 
-const journeyLines = [
+const journeyLines: TerminalLine[] = [
   { command: 'git log --oneline life' },
   { outputText: { year: '2020', description: 'covid lockdown, taught myself to code' } },
   { outputText: { year: '2022', description: 'first internship at kickdrum, 6 months of real work' } },

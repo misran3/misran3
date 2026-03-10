@@ -1,4 +1,4 @@
-interface TerminalLine {
+export interface TerminalLine {
   command?: string
   outputText?: { year: string, description: string }
 }
