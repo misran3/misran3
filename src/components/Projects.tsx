@@ -1,70 +1,153 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
+interface ProjectLink {
+  github?: string
+  live?: string
+}
+
 interface Project {
   id: number
   name: string
   description: string
   tags: string[]
-  size: 'small' | 'medium' | 'large'
+  links?: ProjectLink
+  featured: boolean
   rotation: number
-  gridArea: string
 }
 
-const projects: Project[] = [
+const featuredProjects: Project[] = [
   {
     id: 1,
     name: 'Ark',
-    description: 'Multi-agent AI for financial threat detection',
-    tags: ['Pydantic AI', 'AWS Lambda', 'Bedrock'],
-    size: 'large',
+    description: 'Multi-agent AI for real-time financial threat detection. 2nd place at TartanHacks.',
+    tags: ['Hackathon', 'Pydantic AI', 'Lambda', 'Bedrock', 'DynamoDB'],
+    links: { github: 'https://github.com/misran3/ark' },
+    featured: true,
     rotation: -2,
-    gridArea: 'ark',
   },
   {
     id: 2,
     name: 'CatchLog',
-    description: 'On-device AI for fishing compliance, zero connectivity',
-    tags: ['PaliGemma', 'Edge AI', 'Python'],
-    size: 'medium',
+    description: 'On-device AI for fishing compliance — classifies species 200 miles offshore with zero connectivity. Top 6 at Google DeepMind x InstaLILY.',
+    tags: ['Hackathon', 'PaliGemma 2', 'Edge AI', 'Python'],
+    links: { github: 'https://github.com/misran3/catchlog' },
+    featured: true,
     rotation: 1.5,
-    gridArea: 'catchlog',
   },
   {
     id: 3,
-    name: 'Valkyrie-FS',
-    description: 'FUSE filesystem, 13x faster S3 reads',
-    tags: ['C++', 'FUSE', 'Linux'],
-    size: 'small',
-    rotation: -1,
-    gridArea: 'valkyrie',
+    name: 'Smart Outreach Hub',
+    description: 'AI sales agent automating SMS outreach to 30K+ prospects. Built at AWS Cloud Innovation Center.',
+    tags: ['Open Source', 'React', 'Lambda', 'DynamoDB'],
+    links: { github: 'https://github.com/pitt-cic/smart-outreach-hub' },
+    featured: true,
+    rotation: 2.5,
   },
   {
     id: 4,
-    name: 'Smart Outreach',
-    description: 'AI sales agent automating 30K+ outreach',
-    tags: ['React', 'Lambda', 'DynamoDB'],
-    size: 'medium',
-    rotation: 2.5,
-    gridArea: 'outreach',
+    name: 'PHI Deidentification',
+    description: 'Clinical notes processing pipeline with 99% F1 accuracy. Scales to 1M+ documents.',
+    tags: ['Open Source', 'Python', 'Bedrock', 'SQS', 'Lambda'],
+    links: { github: 'https://github.com/pitt-cic/phi-deidentification' },
+    featured: true,
+    rotation: -1.5,
   },
   {
     id: 5,
-    name: 'PHI Pipeline',
-    description: 'Clinical notes processing, 99% F1 accuracy',
-    tags: ['Python', 'Bedrock', 'SQS'],
-    size: 'large',
-    rotation: -1.5,
-    gridArea: 'phi',
+    name: 'User Rec System',
+    description: 'Distributed ETL pipeline processing 200M tweets. Go microservices serving 10K requests/sec.',
+    tags: ['PySpark', 'Go', 'Kubernetes', 'gRPC'],
+    links: undefined,
+    featured: true,
+    rotation: 2,
   },
   {
     id: 6,
-    name: 'User Rec',
-    description: '200M tweets, 10K requests/sec',
-    tags: ['PySpark', 'Go', 'Kubernetes'],
-    size: 'small',
+    name: 'Database Migration',
+    description: 'Replay testing framework to migrate 7TB on-prem database to Aurora with zero data loss.',
+    tags: ['Python', 'Aurora', 'MySQL', 'Testing'],
+    links: undefined,
+    featured: true,
+    rotation: -1,
+  },
+]
+
+const moreProjects: Project[] = [
+  {
+    id: 7,
+    name: 'Valkyrie-FS',
+    description: 'FUSE filesystem achieving 13.6x faster S3 reads for ML training workloads.',
+    tags: ['C++', 'FUSE', 'Linux', 'S3'],
+    links: { github: 'https://github.com/misran3/valkyrie-fs' },
+    featured: false,
+    rotation: 1,
+  },
+  {
+    id: 8,
+    name: 'NoComelon',
+    description: "Turns your kid's drawings into narrated, animated storybooks. Columbia AI for Good Hackathon.",
+    tags: ['Hackathon', 'FastAPI', 'React', 'GPT-4o', 'ElevenLabs'],
+    links: {
+      github: 'https://github.com/misran3/nocomelon',
+      live: 'https://misran3.github.io/nocomelon/',
+    },
+    featured: false,
+    rotation: -1.5,
+  },
+  {
+    id: 9,
+    name: 'NYC Scout',
+    description: 'RAG pipeline for NYC landmarks with XGBoost taxi fare prediction.',
+    tags: ['Python', 'LangChain', 'LangGraph', 'Flask'],
+    links: { github: 'https://github.com/misran3/nyc-scout' },
+    featured: false,
     rotation: 2,
-    gridArea: 'userrec',
+  },
+  {
+    id: 10,
+    name: 'NexPlace',
+    description: 'Multi-store system processing 175K+ businesses with sub-100ms geospatial queries.',
+    tags: ['Java', 'Spring Boot', 'Cosmos DB', 'Redis'],
+    links: { github: 'https://github.com/misran3/nex-place' },
+    featured: false,
+    rotation: -2,
+  },
+  {
+    id: 11,
+    name: 'Social Network Analysis',
+    description: 'Distributed graph analytics processing Twitter social network on 5-node EMR cluster.',
+    tags: ['Spark', 'Scala', 'EMR', 'S3'],
+    links: { github: 'https://github.com/misran3/twitter-social-network-analysis' },
+    featured: false,
+    rotation: 1.5,
+  },
+  {
+    id: 12,
+    name: 'VerseVibe',
+    description: 'Elasticsearch search engine indexing 5M songs with custom analyzers.',
+    tags: ['Spring Boot', 'Elasticsearch', 'Hibernate', 'React'],
+    links: { github: 'https://github.com/misran3/verse-vibe' },
+    featured: false,
+    rotation: -1,
+  },
+  {
+    id: 13,
+    name: 'Pitt Digital Work',
+    description: 'Reengineered data ingestion from sync to async — 85% faster processing.',
+    tags: ['Lambda', 'Python', 'Testing', 'AWS'],
+    links: undefined,
+    featured: false,
+    rotation: 2.5,
+  },
+  {
+    id: 14,
+    name: 'Kickdrum Projects',
+    description: 'Okta integration for 50K users, Terraform migrations, IoT firmware updates.',
+    tags: ['Okta', 'Terraform', 'AWS', 'IoT'],
+    links: undefined,
+    featured: false,
+    rotation: -2.5,
   },
 ]
 
