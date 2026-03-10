@@ -368,19 +368,16 @@ export default function Projects() {
           {featuredProjects.map((project, index) => renderProjectCard(project, index, false))}
         </div>
 
-        {/* View All Button */}
-        <motion.button
-          className="projects-view-all"
-          onClick={() => setIsExpanded(!isExpanded)}
-          variants={headerVariants}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          data-text={isExpanded ? 'Show less' : 'See more'}
-        >
-          <span className="projects-view-all__text">
-            {isExpanded ? 'Show less' : 'See more'}
-          </span>
-        </motion.button>
+        {/* View All Button - only when collapsed */}
+        {!isExpanded && (
+          <motion.button
+            className="projects-view-all"
+            onClick={() => setIsExpanded(true)}
+            variants={headerVariants}
+          >
+            <span className="projects-view-all__text">See more</span>
+          </motion.button>
+        )}
 
         {/* Expanded Projects Grid */}
         {isExpanded && (
@@ -391,6 +388,17 @@ export default function Projects() {
           >
             {moreProjects.map((project, index) => renderProjectCard(project, index, true))}
           </motion.div>
+        )}
+
+        {/* Show Less Button - only when expanded, after the grid */}
+        {isExpanded && (
+          <motion.button
+            className="projects-view-all"
+            onClick={() => setIsExpanded(false)}
+            variants={headerVariants}
+          >
+            <span className="projects-view-all__text">Show less</span>
+          </motion.button>
         )}
       </motion.div>
     </section>
