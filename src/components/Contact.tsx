@@ -128,7 +128,20 @@ export default function Contact() {
           className={`contact-footer ${isVisible ? 'contact-footer--visible' : ''}`}
           style={{ animationDelay: prefersReducedMotion ? '0s' : '0.5s' }}
         >
-          <p className="contact-footer__text">Built by Misran</p>
+          <p className="contact-footer__text">
+            Built with{' '}
+            <a
+              href="https://claude.com/product/claude-code"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-footer__link"
+            >
+              Claude Code
+            </a>
+          </p>
+          <p className="contact-footer__copyright">
+            &copy; {new Date().getFullYear()} Misran
+          </p>
         </footer>
       </div>
     </section>

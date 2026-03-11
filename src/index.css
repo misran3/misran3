@@ -2319,6 +2319,28 @@ a:hover {
   opacity: 0.8;
 }
 
+.contact-footer__link {
+  color: #C46849;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.contact-footer__link:hover {
+  color: #C46849;
+  opacity: 0.8;
+}
+
+.contact-footer__copyright {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  margin: 0.5rem 0 0;
+  opacity: 0.4;
+  text-align: center;
+}
+
 /* Animations */
 @keyframes contact-fade-in {
   0% {
