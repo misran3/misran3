@@ -844,12 +844,12 @@ a:hover {
   letter-spacing: -0.02em;
 }
 
-.behind-tagline {
+.behind-subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   font-style: italic;
   color: var(--color-muted);
-  margin: 0 0 2.5rem;
+  margin: 0 0 1rem;
 }
 
 .behind-grid {

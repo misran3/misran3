@@ -106,16 +106,14 @@ export default function BehindTheCommits() {
           Behind the commits
         </motion.h2>
 
-        <motion.p className="behind-tagline" variants={headingVariants}>
-          The journey so far. And life beyond the code.
-        </motion.p>
-
         <div className="behind-grid">
           <motion.div className="behind-journey" variants={contentVariants}>
+            <p className="behind-subtitle">The journey so far</p>
             <Terminal lines={journeyLines} />
           </motion.div>
 
           <motion.div className="behind-interests" variants={contentVariants}>
+            <p className="behind-subtitle">Life beyond code</p>
             <div className="behind-interests__grid">
               {interests.map((interest, index) => (
                 <motion.div
