@@ -140,7 +140,7 @@ export default function Contact() {
             </a>
           </p>
           <p className="contact-footer__copyright">
-            &copy; {new Date().getFullYear()} Misran
+            &copy; {new Date().getFullYear()} Mohammed Misran. All rights reserved.
           </p>
         </footer>
       </div>
