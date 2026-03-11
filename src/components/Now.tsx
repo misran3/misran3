@@ -91,10 +91,11 @@ export default function Now() {
         <motion.blockquote className="now-quote" variants={quoteVariants}>
           <p className="now-quote__text">
             Currently building{' '}
-            <span className="now-quote__highlight">AI agents</span> at AWS Cloud
-            Innovation Center, exploring what's possible at the edge of{' '}
-            <span className="now-quote__highlight--alt">code</span> and{' '}
-            <span className="now-quote__highlight">intelligence</span>.
+            <span className="now-quote__highlight">open-source AI</span> at AWS
+            CIC. Finishing my{' '}
+            <span className="now-quote__highlight--alt">Master's at Pitt</span>.
+            Hunting for SWE roles to build{' '}
+            <span className="now-quote__highlight">AI that matters</span>.
           </p>
         </motion.blockquote>
 
