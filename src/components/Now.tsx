@@ -102,6 +102,17 @@ export default function Now() {
         <motion.p className="now-subtext" variants={subtextVariants}>
           Pittsburgh, PA
         </motion.p>
+
+        {/* Contact button */}
+        <motion.a
+          href="https://form.typeform.com/to/xaB14ijh"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="now-contact-btn"
+          variants={subtextVariants}
+        >
+          Say hello
+        </motion.a>
       </motion.div>
     </section>
   )
