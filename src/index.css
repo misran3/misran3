@@ -414,7 +414,7 @@ a:hover {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .hero-name {
-    font-size: clamp(2.5rem, 20vw, 6rem);
+    font-size: clamp(2rem, 14vw, 4.5rem);
   }
 
   .hero-intro,
