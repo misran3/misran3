@@ -64,6 +64,17 @@ const featuredProjects: Project[] = [
   },
   {
     id: 6,
+    name: 'Asha',
+    description: 'WhatsApp-native AI to assist small businesses to automate their workflow. Top 6 at Nebius.Build SF Hackathon.',
+    tags: ['Hackathon', 'Twilio', 'Nebius Token Factory', 'Next.js', 'Vercel'],
+    featured: true,
+    rotation: -1
+  },
+]
+
+const moreProjects: Project[] = [
+  {
+    id: 7,
     name: 'Database Migration',
     description: 'Replay testing framework to migrate 7TB on-prem database to Aurora with zero data loss.',
     tags: ['Python', 'Aurora', 'MySQL', 'Testing'],
@@ -71,11 +82,8 @@ const featuredProjects: Project[] = [
     featured: true,
     rotation: -1,
   },
-]
-
-const moreProjects: Project[] = [
   {
-    id: 7,
+    id: 8,
     name: 'Valkyrie-FS',
     description: 'FUSE filesystem achieving 13.6x faster S3 reads for ML training workloads.',
     tags: ['C++', 'FUSE', 'Linux', 'S3'],
@@ -84,7 +92,7 @@ const moreProjects: Project[] = [
     rotation: 1,
   },
   {
-    id: 8,
+    id: 9,
     name: 'NoComelon',
     description: "Turns your kid's drawings into narrated, animated storybooks. Columbia AI for Good Hackathon.",
     tags: ['Hackathon', 'FastAPI', 'React', 'GPT-4o', 'ElevenLabs'],
@@ -96,7 +104,7 @@ const moreProjects: Project[] = [
     rotation: -1.5,
   },
   {
-    id: 9,
+    id: 10,
     name: 'NYC Scout',
     description: 'RAG pipeline for NYC landmarks with XGBoost taxi fare prediction.',
     tags: ['Python', 'LangChain', 'LangGraph', 'Flask'],
@@ -105,7 +113,7 @@ const moreProjects: Project[] = [
     rotation: 2,
   },
   {
-    id: 10,
+    id: 11,
     name: 'NexPlace',
     description: 'Multi-store system processing 175K+ businesses with sub-100ms geospatial queries.',
     tags: ['Java', 'Spring Boot', 'Cosmos DB', 'Redis'],
@@ -114,7 +122,7 @@ const moreProjects: Project[] = [
     rotation: -2,
   },
   {
-    id: 11,
+    id: 12,
     name: 'Social Network Analysis',
     description: 'Distributed graph analytics processing Twitter social network on 5-node EMR cluster.',
     tags: ['Spark', 'Scala', 'EMR', 'S3'],
@@ -123,7 +131,7 @@ const moreProjects: Project[] = [
     rotation: 1.5,
   },
   {
-    id: 12,
+    id: 13,
     name: 'VerseVibe',
     description: 'Elasticsearch search engine indexing 5M songs with custom analyzers.',
     tags: ['Spring Boot', 'Elasticsearch', 'Hibernate', 'React'],
@@ -132,7 +140,7 @@ const moreProjects: Project[] = [
     rotation: -1,
   },
   {
-    id: 13,
+    id: 14,
     name: 'Survey Ingestion',
     description: 'Reengineered Lambda service from sync to async — 85% faster. Built test suite achieving 96% code coverage.',
     tags: ['Lambda', 'Python', 'Async', 'Testing'],
@@ -141,7 +149,7 @@ const moreProjects: Project[] = [
     rotation: 2.5,
   },
   {
-    id: 14,
+    id: 15,
     name: 'Okta-SCIM Integration',
     description: 'Custom REST API integration to provision 50K+ users, eliminating manual sync and errors.',
     tags: ['Okta', 'SCIM', 'REST API', 'NestJS'],
@@ -150,7 +158,7 @@ const moreProjects: Project[] = [
     rotation: -2.5,
   },
   {
-    id: 15,
+    id: 16,
     name: 'Auth0 Migration',
     description: 'Migrated Auth0 rules to actions with zero disruption in production for 25K+ users.',
     tags: ['Auth0', 'JavaScript', 'Identity', 'IAM'],
@@ -159,7 +167,7 @@ const moreProjects: Project[] = [
     rotation: 1.5,
   },
   {
-    id: 16,
+    id: 17,
     name: 'IaC Standardization',
     description: 'Standardized 15+ AWS services across 3 regions from manual provisioning and drifted CDK to Terraform IaC.',
     tags: ['Terraform', 'AWS', 'IaC', 'CDK'],
@@ -168,7 +176,7 @@ const moreProjects: Project[] = [
     rotation: -1.5,
   },
   {
-    id: 17,
+    id: 18,
     name: 'IoT Firmware Updates',
     description: 'Built Python UDP server for OTA firmware updates across 1000+ vehicles.',
     tags: ['Python', 'UDP', 'IoT', 'OTA'],
