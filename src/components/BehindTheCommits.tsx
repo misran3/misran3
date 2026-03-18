@@ -24,6 +24,7 @@ const journeyLines: TerminalLine[] = [
   { outputText: { year: '2026', description: 'columbia hackathon, ai for good, kept the streak going' } },
   { outputText: { year: '2026', description: 'flew from pittsburgh to sf, google deepmind x instalily ai hackathon, shipped in 8 hours, top 6 finalist' } },
   { outputText: { year: '2026', description: 'built phi deidentification solution, second open-source at aws cic' } },
+  { outputText: { year: '2026', description: 'built whatsapp-native assistant to assist scale small businesses, nebius build sf hackathon, top 6 finalist' } },
   { outputText: { year: 'now', description: 'still building at forefront of AI, never stopping' } },
 ]
 
