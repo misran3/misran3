@@ -1778,14 +1778,19 @@ a:hover {
   min-height: 240px;
 }
 
-/* Row 4: 2 panels (6+6 = 12) */
+/* Row 4: 3 panels (4+4+4 = 12) */
 .projects-grid--expanded > .projects-panel:nth-child(10) {
-  grid-column: span 6;
+  grid-column: span 4;
   min-height: 240px;
 }
 
 .projects-grid--expanded > .projects-panel:nth-child(11) {
-  grid-column: span 6;
+  grid-column: span 4;
+  min-height: 240px;
+}
+
+.projects-grid--expanded > .projects-panel:nth-child(12) {
+  grid-column: span 4;
   min-height: 240px;
 }
 
